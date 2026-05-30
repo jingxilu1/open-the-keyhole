@@ -43,7 +43,7 @@ function windowResized() {
 function draw() {
   drawBackgroundGradient();
 
-  //  SNOW 
+  // SNOW 
   for (let s of snowflakes) {
     s.update();
     s.display();
@@ -77,7 +77,7 @@ function draw() {
 
   prevClick = isClicking;
 
-  //PARTICLES
+  //  PARTICLES 
   let m = createVector(mouseX, mouseY);
   let d = p5.Vector.dist(m, heart);
 
@@ -101,7 +101,7 @@ function draw() {
     }
   }
 
-  // TRANSITION
+  // TRANSITION 
   if (fadeToImmersion) {
     imgAlpha = lerp(imgAlpha, 255, 0.05);
     baseAlpha = lerp(baseAlpha, 0, 0.05);
@@ -148,7 +148,7 @@ function draw() {
 
   pop();
 
-  // KEY 
+  //  KEY 
   if (!fadeToImmersion) {
     drawKeyhole(heart.x, heart.y, 36);
     drawKey(mouseX, mouseY, mouseX - pmouseX, mouseY - pmouseY);
@@ -167,7 +167,7 @@ function drawBackgroundGradient() {
   }
 }
 
-// PARTICLE 
+//  PARTICLE 
 class Particle {
   constructor(x, y, str) {
     this.pos = createVector(x + random(-8, 8), y + random(-8, 8));
@@ -201,7 +201,7 @@ class Particle {
   }
 }
 
-//  KEY 
+// KEY 
 function drawKeyhole(x, y, size) {
   push();
   translate(x, y);
@@ -241,7 +241,7 @@ function drawKey(x, y, vx, vy) {
   pop();
 }
 
-// SNOW 
+//  SNOW 
 class Snowflake {
   constructor() {
     this.reset();
