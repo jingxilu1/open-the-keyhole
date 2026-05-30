@@ -43,13 +43,13 @@ function windowResized() {
 function draw() {
   drawBackgroundGradient();
 
-  // ================= SNOW =================
+  // SNOW 
   for (let s of snowflakes) {
     s.update();
     s.display();
   }
 
-  // ================= TEXT =================
+  // TEXT 
   fill(255, 87, 173);
   noStroke();
   textAlign(CENTER, TOP);
@@ -58,10 +58,10 @@ function draw() {
   textStyle(BOLD);
   text("Try inserting the key into the keyhole", width / 2, 28);
 
-  // ================= KEY CENTER =================
+  // KEY CENTER 
   let heart = createVector(centerX, centerY - 40);
 
-  // ===== CLICK DETECT =====
+  // CLICK DETECT 
   let dKey = dist(mouseX, mouseY, heart.x, heart.y);
   let isClicking = mouseIsPressed && dKey < 25;
 
@@ -77,7 +77,7 @@ function draw() {
 
   prevClick = isClicking;
 
-  // ================= PARTICLES =================
+  //  PARTICLES 
   let m = createVector(mouseX, mouseY);
   let d = p5.Vector.dist(m, heart);
 
@@ -101,13 +101,13 @@ function draw() {
     }
   }
 
-  // ================= TRANSITION =================
+  // TRANSITION 
   if (fadeToImmersion) {
     imgAlpha = lerp(imgAlpha, 255, 0.05);
     baseAlpha = lerp(baseAlpha, 0, 0.05);
   }
 
-  // ================= IMMERSION IMAGE =================
+  // IMMERSION IMAGE 
   if (fadeToImmersion) {
 
     push();
@@ -136,7 +136,7 @@ function draw() {
   pop();
 }
 
-  // ================= HUMAN IMAGE =================
+  // HUMAN IMAGE 
   push();
   imageMode(CENTER);
 
@@ -148,14 +148,14 @@ function draw() {
 
   pop();
 
-  // ================= KEY =================
+  //  KEY 
   if (!fadeToImmersion) {
     drawKeyhole(heart.x, heart.y, 36);
     drawKey(mouseX, mouseY, mouseX - pmouseX, mouseY - pmouseY);
   }
 }
 
-// ================= BACKGROUND =================
+// BACKGROUND 
 function drawBackgroundGradient() {
   let c1 = color(0, 158, 255);
   let c2 = color(255, 255, 255);
@@ -167,7 +167,7 @@ function drawBackgroundGradient() {
   }
 }
 
-// ================= PARTICLE =================
+//  PARTICLE 
 class Particle {
   constructor(x, y, str) {
     this.pos = createVector(x + random(-8, 8), y + random(-8, 8));
@@ -201,7 +201,7 @@ class Particle {
   }
 }
 
-// ================= KEY =================
+// KEY 
 function drawKeyhole(x, y, size) {
   push();
   translate(x, y);
@@ -241,7 +241,7 @@ function drawKey(x, y, vx, vy) {
   pop();
 }
 
-// ================= SNOW =================
+//  SNOW 
 class Snowflake {
   constructor() {
     this.reset();
